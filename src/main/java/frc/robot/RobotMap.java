@@ -1,3 +1,5 @@
+package frc.robot;
+
 public class RobotMap {
     //shooter penumatics
     public static final int LEFT_INTAKE_EXTEND = 0;
