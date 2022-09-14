@@ -1,20 +1,39 @@
 package frc.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.Solenoid;
 import frc.robot.RobotMap;
 
 public class Shooter {
     //indicate left/right
-    DoubleSolenoid leftSolenoid; 
-    DoubleSolenoid rightSolenoid; 
+
+    Solenoid[] solenoids;
 
     public Shooter() {
-        leftSolenoid = new DoubleSolenoid(RobotMap.LEFT_INTAKE_EXTEND, RobotMap.LEFT_INTAKE_RETRACT);
-        rightSolenoid = new DoubleSolenoid(RobotMap.RIGHT_INTAKE_EXTEND, RobotMap.RIGHT_INTAKE_RETRACT);
+        solenoids = new Solenoid[4];
+        solenoids[0] = new Solenoid(PneumaticsModuleType.CTREPCM, RobotMap.RIGHT_FIRE_SOLENOID_1);
+        solenoids[1] = new Solenoid(PneumaticsModuleType.CTREPCM, RobotMap.RIGHT_FIRE_SOLENOID_2);
+        solenoids[2] = new Solenoid(PneumaticsModuleType.CTREPCM, RobotMap.LEFT_FIRE_SOLENOID_1);
+        solenoids[3] = new Solenoid(PneumaticsModuleType.CTREPCM, RobotMap.LEFT_FIRE_SOLENOID_2);
     }
 
-    public void shoot() {
-        leftSolenoid.set(DoubleSolenoid.Value.kForward);  
-        rightSolenoid.set(DoubleSolenoid.Value.kForward); 
+    public void fireAll() {
+        for (Solenoid solenoid : solenoids){
+            solenoid.set(true);
+        }
+    }
+    
+    public void closeAll() {
+        for (Solenoid solenoid : solenoids){
+            solenoid.set(false);
+        }
+    }
+    
+    public void fire(int shooter) {
+        solenoids[shooter].set(true);
+    }
+    
+    public void close(int shooter) {
+        solenoids[shooter].set(false);
     }
 }
