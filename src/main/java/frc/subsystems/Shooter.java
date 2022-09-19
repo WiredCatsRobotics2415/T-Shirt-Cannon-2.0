@@ -40,16 +40,14 @@ public class Shooter {
     }
     
     public void fire(int shooter) {
-        //solenoids[shooter].set(true);
-        solenoids[shooter].set(false);
+        solenoids[shooter].set(Constants.OPEN_SOLENOID_VALUE);
         if (this.autoCloseMode) {
             closeSolenioidMap.put(this.ticks + Constants.CLOSE_SOLENOID_AFTER_TICKS, shooter);
         }
     }
     
     public void close(int shooter) {
-        //solenoids[shooter].set(false);
-        solenoids[shooter].set(true);
+        solenoids[shooter].set(!Constants.OPEN_SOLENOID_VALUE);
     }
 
     public void setAutoCloseMode(boolean modeChoice) {
