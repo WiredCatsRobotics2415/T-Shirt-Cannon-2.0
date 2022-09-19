@@ -71,4 +71,9 @@ public class Robot extends TimedRobot {
       shooter.setAutoCloseMode(false);
     }
   }
+
+  @Override
+  public void disabledInit() {
+    shooter.closeAll();
+  }
 }
