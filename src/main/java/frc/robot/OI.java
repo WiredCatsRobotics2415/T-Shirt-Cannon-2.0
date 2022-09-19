@@ -19,10 +19,15 @@ public class OI {
     }
 
     public double getRotation(){
-        if (Math.abs(this.controller.getRawAxis(4)) < DEADBAND) {
-            return 0;
+        double contValue = this.controller.getRawAxis(4);
+        if (contValue > 0) {
+            return this.controller.getRawAxis(4)/2;
         } else {
-            return this.controller.getRawAxis(4);
+            if (Math.abs(this.controller.getRawAxis(4)) < DEADBAND) {
+                return 0;
+            } else {
+                return this.controller.getRawAxis(4);
+            }
         }
     }
 
