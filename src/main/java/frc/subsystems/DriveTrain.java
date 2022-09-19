@@ -3,7 +3,6 @@ package frc.subsystems;
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
 public class DriveTrain {
     Talon leftTalon, rightTalon;
