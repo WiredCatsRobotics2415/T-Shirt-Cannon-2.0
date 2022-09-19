@@ -5,6 +5,7 @@ import java.util.Map;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
+import frc.robot.Constants;
 import frc.robot.RobotMap;
 
 public class Shooter {
@@ -42,7 +43,7 @@ public class Shooter {
         //solenoids[shooter].set(true);
         solenoids[shooter].set(false);
         if (this.autoCloseMode) {
-            closeSolenioidMap.put(this.ticks + RobotMap.CLOSE_SOLENOID_AFTER_TICKS, shooter);
+            closeSolenioidMap.put(this.ticks + Constants.CLOSE_SOLENOID_AFTER_TICKS, shooter);
         }
     }
     
