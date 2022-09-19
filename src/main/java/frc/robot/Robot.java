@@ -45,14 +45,18 @@ public class Robot extends TimedRobot {
     drive.drive(oi.getThrottle(), oi.getRotation());
     shooter.periodic();
 
-    if(oi.getShooterButton(1)){
-        shooter.fire(0);
+    if(oi.getShooterButton(1)) {
+      if (shooter.getSolenoidStatus(0)) shooter.close(0);
+      else shooter.fire(0);
     } else if(oi.getShooterButton(2)){
-        shooter.fire(1);
+      if (shooter.getSolenoidStatus(1)) shooter.close(1);
+      else shooter.fire(1);
     } else if (oi.getShooterButton(3)) {
-        shooter.fire(2);
+      if (shooter.getSolenoidStatus(2)) shooter.close(2);
+      else shooter.fire(2);
     } else if (oi.getShooterButton(4)) {
-        shooter.fire(3);
+      if (shooter.getSolenoidStatus(3)) shooter.close(3);
+      else shooter.fire(3);
     }
 
     if(oi.getShooterButton(7)) shooter.closeAll();

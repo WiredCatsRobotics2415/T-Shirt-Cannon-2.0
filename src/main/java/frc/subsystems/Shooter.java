@@ -47,7 +47,11 @@ public class Shooter {
     }
     
     public void close(int shooter) {
-        solenoids[shooter].set(!Constants.OPEN_SOLENOID_VALUE);
+        if (!this.autoCloseMode) solenoids[shooter].set(!Constants.OPEN_SOLENOID_VALUE);
+    }
+
+    public boolean getSolenoidStatus(int shooter) {
+        return solenoids[shooter].get();
     }
 
     public void setAutoCloseMode(boolean modeChoice) {
