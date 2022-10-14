@@ -51,7 +51,7 @@ public class Shooter {
     }
 
     public boolean getSolenoidStatus(int shooter) {
-        return solenoids[shooter].get();
+        return !solenoids[shooter].get();
     }
 
     public void setAutoCloseMode(boolean modeChoice) {
