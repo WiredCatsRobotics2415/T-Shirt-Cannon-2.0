@@ -25,7 +25,6 @@ public class Robot extends TimedRobot {
 
   public int Y_AXIS_NUMBER = 1; // aka throttle
   public int X_AXIS_NUMBER = 4; // aka rotation
-  //TODO: Sept 14: make sure y and x axis are not switched in OI
 
   @Override
   public void robotInit() {
@@ -46,28 +45,22 @@ public class Robot extends TimedRobot {
     shooter.periodic();
 
     if(oi.getShooterButton(1)) {
-      if (shooter.getSolenoidStatus(0)) shooter.close(0);
+      if (shooter.getSolenoidStatus(0)) shooter.close(0); //bottom right f310:A
       else shooter.fire(0);
-    } else if(oi.getShooterButton(2)){
-      if (shooter.getSolenoidStatus(1)) shooter.close(1);
+    } else if(oi.getShooterButton(3)){
+      if (shooter.getSolenoidStatus(1)) shooter.close(1); //bottom left f310:X
       else shooter.fire(1);
-    } else if (oi.getShooterButton(3)) {
-      if (shooter.getSolenoidStatus(2)) shooter.close(2);
+    } else if (oi.getShooterButton(2)) {
+      if (shooter.getSolenoidStatus(2)) shooter.close(2); //top right f310:B
       else shooter.fire(2);
     } else if (oi.getShooterButton(4)) {
-      if (shooter.getSolenoidStatus(3)) shooter.close(3);
+      if (shooter.getSolenoidStatus(3)) shooter.close(3); //top left f310:Y
       else shooter.fire(3);
     }
 
-    if(oi.getShooterButton(7)) shooter.closeAll();
-    if(oi.getShooterButton(8)) shooter.fireAll();
+    if(oi.getShooterButton(7)) shooter.closeAll(); //f310: back
+    if(oi.getShooterButton(8)) shooter.fireAll(); //f310: start
     
-    SmartDashboard.putNumber("compPsi", compressor.getPressure());
-    SmartDashboard.putNumber("compCurrent", compressor.getCurrent());
-    SmartDashboard.putNumber("compAnalog", compressor.getAnalogVoltage());
-    SmartDashboard.putBoolean("compEnabled", compressor.enabled());
-    SmartDashboard.putBoolean("compSwitch", compressor.getPressureSwitchValue());
-
     if (SmartDashboard.getBoolean("autoClose", false) && !shooter.isAutoCloseMode()) {
       shooter.setAutoCloseMode(true);
     }

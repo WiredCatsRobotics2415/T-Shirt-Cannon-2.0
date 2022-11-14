@@ -16,6 +16,21 @@
     }
   },
   "NetworkTables": {
+    "LiveWindow": {
+      "Ungrouped": {
+        "Solenoid[0,0]": {
+          "open": true
+        },
+        "Solenoid[0,1]": {
+          "open": true
+        },
+        "Talon[0]": {
+          "open": true
+        },
+        "open": true
+      },
+      "open": true
+    },
     "SmartDashboard": {
       "open": true
     }

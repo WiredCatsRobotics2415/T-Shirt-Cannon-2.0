@@ -42,7 +42,7 @@ public class Shooter {
     public void fire(int shooter) {
         solenoids[shooter].set(Constants.OPEN_SOLENOID_VALUE);
         if (this.autoCloseMode) {
-            closeSolenioidMap.put(this.ticks + Constants.CLOSE_SOLENOID_AFTER_TICKS, shooter);
+            closeSolenioidMap.put(shooter, this.ticks + Constants.CLOSE_SOLENOID_AFTER_TICKS);
         }
     }
     
@@ -66,7 +66,7 @@ public class Shooter {
         this.ticks++;
         if (!this.autoCloseMode) return;
         for (Map.Entry<Integer,Integer> entry : closeSolenioidMap.entrySet()) {
-            if (this.ticks >= entry.getKey()) solenoids[entry.getValue()].set(true);
+            if (this.ticks >= entry.getValue()) solenoids[entry.getKey()].set(true);
         }
     }
 }
