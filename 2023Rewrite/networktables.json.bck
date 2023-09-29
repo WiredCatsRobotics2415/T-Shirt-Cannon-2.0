@@ -10,7 +10,7 @@
   {
     "name": "/Preferences/Drive mode (False = arcade, True = tank): ",
     "type": "boolean",
-    "value": false,
+    "value": true,
     "properties": {
       "persistent": true,
       "retained": true
@@ -28,6 +28,14 @@
     "name": "/Preferences/Right Power Multiplier: ",
     "type": "double",
     "value": 1.0,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/Preferences/Auto Close mode: ",
+    "type": "boolean",
+    "value": false,
     "properties": {
       "persistent": true
     }

@@ -14,9 +14,9 @@ public class DriveTrain extends SubsystemBase {
 
     public DriveTrain() {
         leftTalon = new Talon(RobotMap.LEFT_TALONS);
-        leftTalon.setInverted(true);
+        leftTalon.setInverted(false);
         rightTalon = new Talon(RobotMap.RIGHT_TALONS); 
-        rightTalon.setInverted(false);
+        rightTalon.setInverted(true);
         drive = new DifferentialDrive(leftTalon, rightTalon);
     }
 
